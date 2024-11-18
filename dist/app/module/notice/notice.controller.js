@@ -48,8 +48,8 @@ const getNoticeById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 const deleteNoticeById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _b;
-    const notice = yield notice_service_1.noticeServices.deleteNoticeById((_b = req.params) === null || _b === void 0 ? void 0 : _b.id);
+    var _a;
+    const notice = yield notice_service_1.noticeServices.deleteNoticeById((_a = req.params) === null || _a === void 0 ? void 0 : _a.id);
     if (!notice) {
         throw new AppError_1.default(http_status_codes_1.StatusCodes.NOT_FOUND, 'Notice not found');
     }
@@ -61,8 +61,8 @@ const deleteNoticeById = (0, catchAsync_1.default)((req, res) => __awaiter(void 
     return notice;
 }));
 const updateNoticeById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _c;
-    const notice = yield notice_service_1.noticeServices.updateNoticeById((_c = req.params) === null || _c === void 0 ? void 0 : _c.id, req.body);
+    var _a;
+    const notice = yield notice_service_1.noticeServices.updateNoticeById((_a = req.params) === null || _a === void 0 ? void 0 : _a.id, req.body);
     if (!notice) {
         throw new AppError_1.default(http_status_codes_1.StatusCodes.NOT_FOUND, 'Notice not found');
     }

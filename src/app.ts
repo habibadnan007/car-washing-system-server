@@ -22,7 +22,8 @@ const axiosInstance = axios.create({
 
 cron.schedule('*/10 * * * *', () => {
   axiosInstance
-    .get(`https://car-washing-system.onrender.com`)
+    // .get(`https://car-washing-system.onrender.com`)
+    .get(`https://car-washing-system-server.onrender.com`)
     .then((response) => {
       console.log('😀🎉 Self-ping successful after every 10m:', response.status)
     })

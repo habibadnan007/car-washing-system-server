@@ -48,8 +48,8 @@ const getServiceById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
     });
 }));
 const deleteServiceById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _b;
-    const service = yield service_service_1.serviceServices.deleteServiceById((_b = req.params) === null || _b === void 0 ? void 0 : _b.id);
+    var _a;
+    const service = yield service_service_1.serviceServices.deleteServiceById((_a = req.params) === null || _a === void 0 ? void 0 : _a.id);
     if (!service) {
         throw new AppError_1.default(http_status_codes_1.StatusCodes.NOT_FOUND, 'Service not found');
     }
@@ -61,8 +61,8 @@ const deleteServiceById = (0, catchAsync_1.default)((req, res) => __awaiter(void
     return service;
 }));
 const updateServiceById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _c;
-    const service = yield service_service_1.serviceServices.updateServiceById((_c = req.params) === null || _c === void 0 ? void 0 : _c.id, req.file, req.body);
+    var _a;
+    const service = yield service_service_1.serviceServices.updateServiceById((_a = req.params) === null || _a === void 0 ? void 0 : _a.id, req.file, req.body);
     if (!service) {
         throw new AppError_1.default(http_status_codes_1.StatusCodes.NOT_FOUND, 'Service not found');
     }

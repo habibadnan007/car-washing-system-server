@@ -14,14 +14,16 @@ const createBooking = catchAsync(async (req: Request, res: Response) => {
 })
 const getAllBookings = catchAsync(async (req, res) => {
   const { data, total } = await BookingServices.getAllBookings(req.query)
+  // console.log(req.user, 'user')
 
   sendResponse(res, StatusCodes.OK, {
     success: true,
     message: 'All bookings are retrieved successfully!',
-    data,
+    data: req.user?.role === 'user' ? null : data,
     meta: { query: req.query, total },
   })
 })
+
 
 const getMyBookings = catchAsync(async (req: Request, res: Response) => {
   const { data, total } = await BookingServices.getMyBookings({

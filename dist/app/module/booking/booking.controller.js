@@ -27,11 +27,13 @@ const createBooking = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 const getAllBookings = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     const { data, total } = yield booking_service_1.BookingServices.getAllBookings(req.query);
+    // console.log(req.user, 'user')
     (0, sendResponse_1.default)(res, http_status_codes_1.StatusCodes.OK, {
         success: true,
         message: 'All bookings are retrieved successfully!',
-        data,
+        data: ((_a = req.user) === null || _a === void 0 ? void 0 : _a.role) === 'user' ? null : data,
         meta: { query: req.query, total },
     });
 }));

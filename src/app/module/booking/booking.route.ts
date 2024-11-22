@@ -13,7 +13,11 @@ router.post(
   zodValidateHandler(bookingZodSchema.createBookingZodSchema),
   bookingControllers.createBooking,
 ) //TODO: only accessible by user
-router.get('/', auth(USER_ROLE.admin), bookingControllers.getAllBookings) //TODO: only accessible by admin
+router.get(
+  '/',
+  auth(USER_ROLE.admin, USER_ROLE.user),
+  bookingControllers.getAllBookings,
+)
 router.get(
   '/my-bookings',
   auth(USER_ROLE.user),

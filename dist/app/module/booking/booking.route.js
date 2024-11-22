@@ -13,5 +13,5 @@ const user_constant_1 = require("../user/user.constant");
 const router = (0, express_1.Router)();
 exports.bookingRouter = router;
 router.post('/', (0, auth_1.default)(user_constant_1.USER_ROLE.user), (0, zodValidateHandler_1.default)(booking_validate_1.bookingZodSchema.createBookingZodSchema), booking_controller_1.bookingControllers.createBooking); //TODO: only accessible by user
-router.get('/', (0, auth_1.default)(user_constant_1.USER_ROLE.admin), booking_controller_1.bookingControllers.getAllBookings); //TODO: only accessible by admin
+router.get('/', (0, auth_1.default)(user_constant_1.USER_ROLE.admin, user_constant_1.USER_ROLE.user), booking_controller_1.bookingControllers.getAllBookings);
 router.get('/my-bookings', (0, auth_1.default)(user_constant_1.USER_ROLE.user), booking_controller_1.bookingControllers.getMyBookings); //TODO: only accessible by user
